@@ -19,27 +19,27 @@ int mygetch()
     return symbol;
 }
 
-int encrypt_cesar(int symbol, int shift)
+int encrypt_cesar(int symbol, int enter)
 {
     if (islower(symbol))
     {
-        symbol = (symbol - 'a' + shift) % 26 + 'a';
+        symbol = (symbol - 'a' + enter) % 26 + 'a';
     }
     else if (isupper(symbol))
     {
-        symbol = (symbol - 'A' + shift) % 26 + 'A';
+        symbol = (symbol - 'A' + enter) % 26 + 'A';
     }
     return symbol;
 }
 
 int main()
 {
-    const int shift = 1;
+    const int enter = 1;
     int symbol;
 
     while ((symbol = mygetch()) != '\n')
     {
-        symbol = encrypt_cesar(symbol, shift);
+        symbol = encrypt_cesar(symbol, enter);
         printf("%c", symbol);
     }
     printf("\n");
